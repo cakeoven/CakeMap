@@ -6,9 +6,6 @@ Helper for CakePHP framework that integrates a Google Map in your view using Goo
 This is forked from  https://github.com/marcferna/CakePHP-GoogleMapHelper
 I forked this in order to have the correct folder structure and add it as submodule.
 
-##[Demo](http://googlemap-examples.herokuapp.com/)
-[See all the examples live here](http://googlemap-examples.herokuapp.com/)
-
 ## Installation
 1. Place the helper into **app/View/Helper/GoogleMapHelper.php**
 
