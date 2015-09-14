@@ -3,8 +3,11 @@
 /**
  * Class GoogleMapHelperTest
  */
-class GoogleMapHelperTest extends PHPUnit_Framework_TestCase
+class CakeMapHelperTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var
+     */
     protected $googleMap;
 
     protected function setUp()

@@ -27,11 +27,17 @@
  *              Date       May 13, 2010
  *              This helper uses the latest Google API V3 so you don't need to provide or get any Google API Key
  */
-class GoogleMapHelper extends AppHelper
+class CakeMapHelper extends AppHelper
 {
 
-    private static $version = '0.1.2';
+    /**
+     * @var string
+     */
+    private static $version = '1.0.0';
 
+    /**
+     * @return string
+     */
     public static function getVersion()
     {
         return self::$version;
@@ -103,6 +109,10 @@ class GoogleMapHelper extends AppHelper
 
     //DEFAULT CIRCLE OPTIONS (method addCircle())
     var $defaultFillColor = "";
+
+    /**
+     * @var int
+     */
     var $defaultFillOpacity = 0;
 
     /**
@@ -602,10 +612,9 @@ class GoogleMapHelper extends AppHelper
      * This method adds a circle arround a center point
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $map_id   - Id that you used to create the map (default 'map_canvas')
-     * @param       $id       - Unique identifier for the directions
-     * @param mixed $position - array with start and end latitudes and longitudes
-     * @param array $options  - options array
+     * @param       $map_id  - Id that you used to create the map (default 'map_canvas')
+     * @param       $id      - Unique identifier for the directions
+     * @param array $options - options array
      * @return string - will return all the javascript script to add the directions to the map
      */
     function addCircle($map_id, $id, $center, $radius = 100, $options = array())
