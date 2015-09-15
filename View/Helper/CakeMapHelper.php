@@ -30,6 +30,71 @@
 class CakeMapHelper extends AppHelper
 {
 
+    //DEFAULT MAP OPTIONS (method map())
+    public $defaultId = "map_canvas";  // Map canvas ID
+
+    public $defaultWidth = "600px";  // Width of the map
+
+    public $defaultHeight = "600px";  // Height of the map
+
+    public $defaultStyle = "style";  // CSS style for the map canvas
+
+    public $defaultZoom = 13;   // Default zoom
+
+    public $defaultType = 'ROADMAP';  // Type of map (ROADMAP, SATELLITE, HYBRID or TERRAIN)
+
+    public $defaultCustom = null;  // Any other map option not mentioned before and available for the map.
+
+    // For example 'mapTypeControl: true' (http://code.google.com/apis/maps/documentation/javascript/controls.html)
+    public $defaultLatitude = 40.69847032728747;   // Default latitude if the browser doesn't support localization or you don't want localization
+
+    public $defaultLongitude = -73.9514422416687;   // Default longitude if the browser doesn't support localization or you don't want localization
+
+    public $defaultLocalize = true;  // Boolean to localize your position or not
+
+    public $defaultMarker = true;  // Boolean to put a marker in the position or not
+
+    public $defaultMarkerTitle = 'My Position';   // Default marker title (HTML title tag)
+
+    public $defaultMarkerIcon = 'http://google-maps-icons.googlecode.com/files/home.png';  // Default icon of the marker
+
+    public $defaultMarkerShadow = '';  // Default shadow for the marker icon
+
+    public $defaultInfoWindow = true;  // Boolean to show an information window when you click the marker or not
+
+    public $defaultWindowText = 'My Position'; // Default text inside the information window
+
+    //DEFAULT MARKER OPTIONS (method addMarker())
+    public $defaultInfoWindowM = true;  // Boolean to show an information window when you click the marker or not
+
+    public $defaultWindowTextM = 'Marker info window';   // Default text inside the information window
+
+    public $defaultmarkerTitleM = "Title"; // Default marker title (HTML title tag)
+
+    public $defaultmarkerIconM = "http://maps.google.com/mapfiles/marker.png";   // Default icon of the marker
+
+    public $defaultmarkerShadowM = "http://maps.google.com/mapfiles/shadow50.png";  // Default shadow for the marker icon
+
+    //DEFAULT DIRECTIONS OPTIONS (method getDirections())
+    public $defaultTravelMode = "DRIVING"; // Default travel mode (DRIVING, BICYCLING, TRANSIT, WALKING)
+
+    public $defaultDirectionsDiv = null; // Div ID to dump the step by step directions
+
+    //DEFAULT POLYLINES OPTION (method addPolyline())
+    public $defaultStrokeColor = "#FF0000"; // Line color
+
+    public $defaultStrokeOpacity = 1.0; // Line opacity 0.1 - 1
+
+    public $defaultStrokeWeight = 2;  // Line Weight in pixels
+
+    //DEFAULT CIRCLE OPTIONS (method addCircle())
+    public $defaultFillColor = "";
+
+    /**
+     * @public int
+     */
+    public $defaultFillOpacity = 0;
+
     /**
      * @var string
      */
@@ -42,78 +107,6 @@ class CakeMapHelper extends AppHelper
     {
         return self::$version;
     }
-
-
-    //DEFAULT MAP OPTIONS (method map())
-    // Map canvas ID
-    var $defaultId = "map_canvas";
-    // Width of the map
-    var $defaultWidth = "800px";
-    // Height of the map
-    var $defaultHeight = "800px";
-    // CSS style for the map canvas
-    var $defaultStyle = "style";
-    // Default zoom
-    var $defaultZoom = 6;
-    // Type of map (ROADMAP, SATELLITE, HYBRID or TERRAIN)
-    var $defaultType = 'HYBRID';
-    // Any other map option not mentioned before and available for the map.
-    // For example 'mapTypeControl: true' (http://code.google.com/apis/maps/documentation/javascript/controls.html)
-    var $defaultCustom = "";
-    // Default latitude if the browser doesn't support localization or you don't want localization
-    var $defaultLatitude = 40.69847032728747;
-    // Default longitude if the browser doesn't support localization or you don't want localization
-    var $defaultLongitude = -73.9514422416687;
-    // Boolean to localize your position or not
-    var $defaultLocalize = true;
-    // Boolean to put a marker in the position or not
-    var $defaultMarker = true;
-    // Default marker title (HTML title tag)
-    var $defaultMarkerTitle = 'My Position';
-    // Default icon of the marker
-    var $defaultMarkerIcon = 'http://google-maps-icons.googlecode.com/files/home.png';
-    // Default shadow for the marker icon
-    var $defaultMarkerShadow = '';
-    // Boolean to show an information window when you click the marker or not
-    var $defaultInfoWindow = true;
-    // Default text inside the information window
-    var $defaultWindowText = 'My Position';
-
-    //DEFAULT MARKER OPTIONS (method addMarker())
-    // Boolean to show an information window when you click the marker or not
-    var $defaultInfoWindowM = true;
-    // Default text inside the information window
-    var $defaultWindowTextM = 'Marker info window';
-    // Default marker title (HTML title tag)
-    var $defaultmarkerTitleM = "Title";
-    // Default icon of the marker
-    var $defaultmarkerIconM = "http://maps.google.com/mapfiles/marker.png";
-    // Default shadow for the marker icon
-    var $defaultmarkerShadowM = "http://maps.google.com/mapfiles/shadow50.png";
-    // Indicate if marker is draggable
-    var $defaultDraggableMarker = false;
-
-    //DEFAULT DIRECTIONS OPTIONS (method getDirections())
-    // Default travel mode (DRIVING, BICYCLING, TRANSIT, WALKING)
-    var $defaultTravelMode = "DRIVING";
-    // Div ID to dump the step by step directions
-    var $defaultDirectionsDiv = null;
-
-    //DEFAULT POLYLINES OPTION (method addPolyline())
-    // Line color
-    var $defaultStrokeColor = "#FF0000";
-    // Line opacity 0.1 - 1
-    var $defaultStrokeOpacity = 1.0;
-    // Line Weight in pixels
-    var $defaultStrokeWeight = 2;
-
-    //DEFAULT CIRCLE OPTIONS (method addCircle())
-    var $defaultFillColor = "";
-
-    /**
-     * @var int
-     */
-    var $defaultFillOpacity = 0;
 
     /**
      * This method generates a div tag and inserts a google maps.
