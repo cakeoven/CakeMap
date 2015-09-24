@@ -29,78 +29,49 @@
  */
 class CakeMapHelper extends AppHelper
 {
-
-    //DEFAULT MAP OPTIONS (method map())
-    public $defaultId = "map_canvas";  // Map canvas ID
-
-    public $defaultWidth = "600px";  // Width of the map
-
-    public $defaultHeight = "600px";  // Height of the map
-
-    public $defaultStyle = "style";  // CSS style for the map canvas
-
-    public $defaultZoom = 13;   // Default zoom
-
-    public $defaultType = 'ROADMAP';  // Type of map (ROADMAP, SATELLITE, HYBRID or TERRAIN)
-
-    public $defaultCustom = null;  // Any other map option not mentioned before and available for the map.
-
-    // For example 'mapTypeControl: true' (http://code.google.com/apis/maps/documentation/javascript/controls.html)
-    public $defaultLatitude = 40.69847032728747;   // Default latitude if the browser doesn't support localization or you don't want localization
-
-    public $defaultLongitude = -73.9514422416687;   // Default longitude if the browser doesn't support localization or you don't want localization
-
-    public $defaultLocalize = true;  // Boolean to localize your position or not
-
-    public $defaultMarker = true;  // Boolean to put a marker in the position or not
-
-    public $defaultMarkerTitle = 'My Position';   // Default marker title (HTML title tag)
-
-    public $defaultMarkerIcon = 'http://google-maps-icons.googlecode.com/files/home.png';  // Default icon of the marker
-
-    public $defaultMarkerShadow = '';  // Default shadow for the marker icon
-
-    public $defaultInfoWindow = true;  // Boolean to show an information window when you click the marker or not
-
-    public $defaultWindowText = 'My Position'; // Default text inside the information window
-
-    //DEFAULT MARKER OPTIONS (method addMarker())
-    public $defaultInfoWindowM = true;  // Boolean to show an information window when you click the marker or not
-
-    public $defaultWindowTextM = 'Marker info window';   // Default text inside the information window
-
-    public $defaultmarkerTitleM = "Title"; // Default marker title (HTML title tag)
-
-    public $defaultmarkerIconM = "http://maps.google.com/mapfiles/marker.png";   // Default icon of the marker
-
-    public $defaultmarkerShadowM = "http://maps.google.com/mapfiles/shadow50.png";  // Default shadow for the marker icon
-
-    //DEFAULT DIRECTIONS OPTIONS (method getDirections())
-    public $defaultTravelMode = "DRIVING"; // Default travel mode (DRIVING, BICYCLING, TRANSIT, WALKING)
-
-    public $defaultDirectionsDiv = null; // Div ID to dump the step by step directions
-
-    //DEFAULT POLYLINES OPTION (method addPolyline())
-    public $defaultStrokeColor = "#FF0000"; // Line color
-
-    public $defaultStrokeOpacity = 1.0; // Line opacity 0.1 - 1
-
-    public $defaultStrokeWeight = 2;  // Line Weight in pixels
-
-    //DEFAULT CIRCLE OPTIONS (method addCircle())
-    public $defaultFillColor = "";
-
     /**
-     * @public int
+     * @var array
      */
-    public $defaultFillOpacity = 0;
+    public $options = [
+        'id' => 'map_canvas',
+        'width' => '600px',
+        'height' => '600px',
+        'style' => 'style',
+        'zoom' => 13,
+        'type' => 'ROADMAP',
+        'custom' => null,
+        'latitude' => 40.69847032728747,
+        'longitude' => -73.9514422416687,
+        'localize' => true,
+        'marker' => true,
+        'markerTitle' => 'My Position',
+        'markerIcon' => 'http://google-maps-icons.googlecode.com/files/home.png',
+        'markerShadow' => '',
+        'infoWindow' => true,
+        'windowText' => 'My Position',
+        'infoWindowM' => 'true',
+        'windowTextM' => 'Marker info window',
+        'markerTitleM' => 'Title',
+        'markerIconM' => "http://maps.google.com/mapfiles/marker.png",
+        'markerShadowM' => "http://maps.google.com/mapfiles/shadow50.png",
+        'travelMode' => "driving",
+        'directionsDiv' => "null",
+        'strokeColor' => '#FF0000',
+        'strokeOpacity' => 1.0,
+        'strokeWeight' => 2.0,
+        'fillColor' => "",
+        'fillOpacity' => 0,
+        'draggableMarker' => false,
+    ];
 
     /**
      * @var string
      */
-    private static $version = '1.0.0';
+    private static $version = '1.1.0';
 
     /**
+     * Get the version of this helper
+     *
      * @return string
      */
     public static function getVersion()
@@ -117,56 +88,14 @@ class CakeMapHelper extends AppHelper
      */
     public function map($options = null)
     {
+        $id = $width = $height = $style = $zoom = $type = $custom = $longitude = $latitude = $location =
+        $localize = $marker = $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
+        $fillColor = $fillOpacity = $draggableMarker = null;
+
+        $options = array_merge($this->options, $options);
         if ($options != null) {
             extract($options);
         }
-        if (!isset($id)) {
-            $id = $this->defaultId;
-        }
-        if (!isset($width)) {
-            $width = $this->defaultWidth;
-        }
-        if (!isset($height)) {
-            $height = $this->defaultHeight;
-        }
-        if (!isset($style)) {
-            $style = $this->defaultStyle;
-        }
-        if (!isset($zoom)) {
-            $zoom = $this->defaultZoom;
-        }
-        if (!isset($type)) {
-            $type = $this->defaultType;
-        }
-        if (!isset($custom)) {
-            $custom = $this->defaultCustom;
-        }
-        if (!isset($localize)) {
-            $localize = $this->defaultLocalize;
-        }
-        if (!isset($marker)) {
-            $marker = $this->defaultMarker;
-        }
-        if (!isset($markerIcon)) {
-            $markerIcon = $this->defaultMarkerIcon;
-        }
-        if (!isset($markerShadow)) {
-            $markerShadow = $this->defaultMarkerShadow;
-        }
-        if (!isset($markerTitle)) {
-            $markerTitle = $this->defaultMarkerTitle;
-        }
-        if (!isset($infoWindow)) {
-            $infoWindow = $this->defaultInfoWindow;
-        }
-        if (!isset($windowText)) {
-            $windowText = $this->defaultWindowText;
-        }
-        if (!isset($draggableMarker)) {
-            $draggableMarker = $this->defaultDraggableMarker;
-        }
-
-
         $map = "<div id='$id' style='width:$width; height:$height; $style'></div>";
         $map .= "
       <script>
@@ -223,7 +152,7 @@ class CakeMapHelper extends AppHelper
         $map .= "
       }
     ";
-        if (isset($latitude) && isset($longitude)) {
+        if (!empty($latitude) && !empty($longitude)) {
             $map .= "setCenterMap(new google.maps.LatLng({$latitude}, {$longitude}));";
         } else {
             if (isset($address)) {
@@ -349,22 +278,27 @@ class CakeMapHelper extends AppHelper
      * This method puts a marker in the google map generated with the method map
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $map_id   - Id that you used to create the map (default 'map_canvas')
-     * @param       $id       - Unique identifier for the marker
-     * @param mixed $position - string with the address or an array with latitude and longitude
-     * @param array $options  - options array
-     * @return string - will return all the javascript script to add the marker to the map
+     * @param string $map_id   Id that you used to create the map (default 'map_canvas')
+     * @param string $id       Unique identifier for the marker
+     * @param mixed  $position string with the address or an array with latitude and longitude
+     * @param array  $options  options array
+     * @return string will return all the javascript script to add the marker to the map
      */
-    function addMarker($map_id, $id, $position, $options = array())
+    public function addMarker($map_id, $id, $position, $options = [])
     {
+        $location = $longitude = $latitude =
+        $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
+        $fillColor = $fillOpacity = $draggableMarker = null;
+
         if ($id == null || $map_id == null || $position == null) {
             return null;
         }
         $geolocation = false;
         // Check if position is array and has the two necessary elements
         // or if is not array that the string is not empty
+        //todo add address to
         if (is_array($position)) {
-            if (!isset($position["latitude"]) || !isset($position["longitude"])) {
+            if (empty($position["latitude"]) || empty($position["longitude"])) {
                 return null;
             }
             $latitude = $position["latitude"];
@@ -373,25 +307,8 @@ class CakeMapHelper extends AppHelper
             $geolocation = true;
         }
 
+        $options = array_merge($this->options, $options);
         extract($options);
-        if (!isset($infoWindow)) {
-            $infoWindow = $this->defaultInfoWindowM;
-        }
-        if (!isset($windowText)) {
-            $windowText = $this->defaultWindowTextM;
-        }
-        if (!isset($markerTitle)) {
-            $markerTitle = $this->defaultmarkerTitleM;
-        }
-        if (!isset($markerIcon)) {
-            $markerIcon = $this->defaultmarkerIconM;
-        }
-        if (!isset($markerShadow)) {
-            $markerShadow = $this->defaultmarkerShadowM;
-        }
-        if (!isset($draggableMarker)) {
-            $draggableMarker = $this->defaultDraggableMarker;
-        }
 
         $markerTitle = addslashes($markerTitle);
         $windowText = addslashes($windowText);
@@ -427,10 +344,10 @@ class CakeMapHelper extends AppHelper
      * This method collects all markers into clusters and utilizes the MarkerCluster utility
      *
      * @author Corie Slate <corie.slate (at) gmail (dot) com>
-     * @param $map_id - Id that you used to create the map (default 'map_canvas')
-     * @return string - will return all the javascript script to add the clusterer to the map
+     * @param string $map_id Id that you used to create the map (default 'map_canvas')
+     * @return string will return all the javascript script to add the clusterer to the map
      */
-    function clusterMarkers($map_id)
+    public function clusterMarkers($map_id)
     {
         if ($map_id == null) {
             return null;
@@ -455,7 +372,7 @@ class CakeMapHelper extends AppHelper
      * @param array $options  - options array
      * @return string - will return all the javascript script to add the directions to the map
      */
-    function getDirections($map_id, $id, $position, $options = array())
+    public function getDirections($map_id, $id, $position, $options = [])
     {
         if ($id == null || $map_id == null || $position == null) {
             return null;
@@ -465,14 +382,14 @@ class CakeMapHelper extends AppHelper
             return null;
         }
 
+        $id = $width = $height = $style = $zoom = $type = $custom = $longitude = $latitude = $location =
+        $localize = $marker = $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
+        $directionsDiv = $travelMode =
+        $fillColor = $fillOpacity = $draggableMarker = $strokeColor = $strokeOpacity = $strokeWeight = null;
+
+        $options = array_merge($this->options, $options);
         if ($options != null) {
             extract($options);
-        }
-        if (!isset($travelMode)) {
-            $travelMode = $this->defaultTravelMode;
-        }
-        if (!isset($directionsDiv)) {
-            $directionsDiv = $this->defaultDirectionsDiv;
         }
 
         if (is_array($position["from"])) {
@@ -525,7 +442,7 @@ class CakeMapHelper extends AppHelper
      * @param array $options  - options array
      * @return string - will return all the javascript script to add the directions to the map
      */
-    function addPolyline($map_id, $id, $position, $options = array())
+    public function addPolyline($map_id, $id, $position, $options = [])
     {
         if ($id == null || $map_id == null || $position == null) {
             return null;
@@ -535,17 +452,10 @@ class CakeMapHelper extends AppHelper
             return null;
         }
 
+        $strokeColor = $strokeOpacity = $strokeWeight = null;
+        $options = array_merge($this->options, $options);
         if ($options != null) {
             extract($options);
-        }
-        if (!isset($strokeColor)) {
-            $strokeColor = $this->defaultStrokeColor;
-        }
-        if (!isset($strokeOpacity)) {
-            $strokeOpacity = $this->defaultStrokeOpacity;
-        }
-        if (!isset($strokeWeight)) {
-            $strokeWeight = $this->defaultStrokeWeight;
         }
 
         // Check if position is array and has the two necessary elements
@@ -602,37 +512,26 @@ class CakeMapHelper extends AppHelper
 
     /**
      * Method addCircle
-     * This method adds a circle arround a center point
+     * This method adds a circle around a center point
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $map_id  - Id that you used to create the map (default 'map_canvas')
-     * @param       $id      - Unique identifier for the directions
-     * @param array $options - options array
+     * @param  string $map_id  Id that you used to create the map (default 'map_canvas')
+     * @param string  $id      Unique identifier for the directions
+     * @param string  $center
+     * @param int     $radius
+     * @param array   $options options array
      * @return string - will return all the javascript script to add the directions to the map
      */
-    function addCircle($map_id, $id, $center, $radius = 100, $options = array())
+    public function addCircle($map_id, $id, $center, $radius = 100, $options = [])
     {
         if ($id == null || $map_id == null || $center == null) {
             return null;
         }
 
+        $fillColor = $fillOpacity = $draggableMarker = $strokeColor = $strokeOpacity = $strokeWeight = null;
+        $options = array_merge($this->options, $options);
         if ($options != null) {
             extract($options);
-        }
-        if (!isset($strokeColor)) {
-            $strokeColor = $this->defaultStrokeColor;
-        }
-        if (!isset($strokeOpacity)) {
-            $strokeOpacity = $this->defaultStrokeOpacity;
-        }
-        if (!isset($strokeWeight)) {
-            $strokeWeight = $this->defaultStrokeWeight;
-        }
-        if (!isset($fillColor)) {
-            $fillColor = $this->defaultFillColor;
-        }
-        if (!isset($fillOpacity)) {
-            $fillOpacity = $this->defaultFillOpacity;
         }
 
         // Check if position is array and has the two necessary elements
@@ -644,7 +543,6 @@ class CakeMapHelper extends AppHelper
             $longitude_center = $center["longitude"];
         } else {
             return "Error: Center needs latitude and longiture";
-            return null;
         }
 
         $circle = "<script>";
