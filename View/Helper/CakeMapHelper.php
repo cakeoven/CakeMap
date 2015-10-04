@@ -86,7 +86,7 @@ class CakeMapHelper extends AppHelper
      * @param array $options - options array
      * @return string - will return all the javascript script to generate the map
      */
-    public function map($options = null)
+    public function map(array $options = [])
     {
         $id = $width = $height = $style = $zoom = $type = $custom = $longitude = $latitude = $location =
         $localize = $marker = $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
@@ -96,6 +96,7 @@ class CakeMapHelper extends AppHelper
         if ($options != null) {
             extract($options);
         }
+
         $map = "<div id='$id' style='width:$width; height:$height; $style'></div>";
         $map .= "
       <script>
@@ -284,9 +285,14 @@ class CakeMapHelper extends AppHelper
      * @param array  $options  options array
      * @return string will return all the javascript script to add the marker to the map
      */
-    public function addMarker($map_id, $id, $position, $options = [])
-    {
-        $location = $longitude = $latitude =
+    public
+    function addMarker(
+        $map_id,
+        $id,
+        $position,
+        array $options = []
+    ) {
+        $longitude = $latitude =
         $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
         $fillColor = $fillOpacity = $draggableMarker = null;
 
@@ -347,8 +353,10 @@ class CakeMapHelper extends AppHelper
      * @param string $map_id Id that you used to create the map (default 'map_canvas')
      * @return string will return all the javascript script to add the clusterer to the map
      */
-    public function clusterMarkers($map_id)
-    {
+    public
+    function clusterMarkers(
+        $map_id
+    ) {
         if ($map_id == null) {
             return null;
         }
@@ -366,15 +374,20 @@ class CakeMapHelper extends AppHelper
      * This method gets the direction between two addresses or markers
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $map_id   - Id that you used to create the map (default 'map_canvas')
-     * @param       $id       - Unique identifier for the directions
-     * @param mixed $position - array with strings with the from and to addresses or from and to markers
-     * @param array $options  - options array
-     * @return string - will return all the javascript script to add the directions to the map
+     * @param       $mapId    Id that you used to create the map (default 'map_canvas')
+     * @param       $id       Unique identifier for the directions
+     * @param mixed $position array with strings with the from and to addresses or from and to markers
+     * @param array $options  options array
+     * @return string Return all the javascript script to add the directions to the map
      */
-    public function getDirections($map_id, $id, $position, $options = [])
-    {
-        if ($id == null || $map_id == null || $position == null) {
+    public
+    function getDirections(
+        $mapId,
+        $id,
+        $position,
+        array $options = []
+    ) {
+        if ($id == null || $mapId == null || $position == null) {
             return null;
         }
 
@@ -409,7 +422,7 @@ class CakeMapHelper extends AppHelper
         var {$id}Service = new google.maps.DirectionsService();
         var {$id}Display;
         {$id}Display = new google.maps.DirectionsRenderer();
-        {$id}Display.setMap({$map_id});
+        {$id}Display.setMap({$mapId});
       ";
         if ($directionsDiv != null) {
             $directions .= "{$id}Display.setPanel(document.getElementById('{$directionsDiv}'));";
@@ -436,15 +449,20 @@ class CakeMapHelper extends AppHelper
      * This method adds a line between 2 points
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $map_id   - Id that you used to create the map (default 'map_canvas')
-     * @param       $id       - Unique identifier for the directions
-     * @param mixed $position - array with start and end latitudes and longitudes
-     * @param array $options  - options array
+     * @param string $mapId    Id that you used to create the map (default 'map_canvas')
+     * @param        $id       - Unique identifier for the directions
+     * @param mixed  $position - array with start and end latitudes and longitudes
+     * @param array  $options  - options array
      * @return string - will return all the javascript script to add the directions to the map
      */
-    public function addPolyline($map_id, $id, $position, $options = [])
-    {
-        if ($id == null || $map_id == null || $position == null) {
+    public
+    function addPolyline(
+        $mapId,
+        $id,
+        $position,
+        array $options = []
+    ) {
+        if ($id == null || $mapId == null || $position == null) {
             return null;
         }
 
@@ -503,7 +521,7 @@ class CakeMapHelper extends AppHelper
           strokeOpacity: {$strokeOpacity},
           strokeWeight: {$strokeWeight}
         });
-        {$id}Polyline.setMap({$map_id});
+        {$id}Polyline.setMap({$mapId});
 
       </script>
       ";
@@ -515,15 +533,21 @@ class CakeMapHelper extends AppHelper
      * This method adds a circle around a center point
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param  string $map_id  Id that you used to create the map (default 'map_canvas')
-     * @param string  $id      Unique identifier for the directions
-     * @param string  $center
-     * @param int     $radius
-     * @param array   $options options array
-     * @return string - will return all the javascript script to add the directions to the map
+     * @param string $map_id  Id that you used to create the map (default 'map_canvas')
+     * @param string $id      Unique identifier for the directions
+     * @param string $center
+     * @param int    $radius
+     * @param array  $options options array
+     * @return string Return all the javascript script to add the directions to the map
      */
-    public function addCircle($map_id, $id, $center, $radius = 100, $options = [])
-    {
+    public
+    function addCircle(
+        $map_id,
+        $id,
+        $center,
+        $radius = 100,
+        $options = []
+    ) {
         if ($id == null || $map_id == null || $center == null) {
             return null;
         }

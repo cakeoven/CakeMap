@@ -1,23 +1,83 @@
-# Created by .ignore support plugin (hsz.mobi)
-### CakePHP template
-# CakePHP 3
+### Windows
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-/vendor/*
-/config/app.php
-/tmp/*
-/logs/*
+## Folder config file
+Desktop.ini
 
-# CakePHP 2
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
-### Example user template template
-### Example user template
+## Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
 
-# IntelliJ project files
+## Windows shortcuts
+*.lnk
+
+### Linux
+*~
+
+## KDE directory preferences
+.directory
+
+## Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+### iOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+### IDE Project files
+
+## IntelliJ project files
 .idea
 *.iml
 out
 gen
+
+## NetBeans project files
+nbproject/*
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+### CakePHP
+## CakePHP 2
+
+tmp/*
+[Cc]onfig/email.php
+[Cc]onfig/core.php
+[Cc]onfig/database.php
+app/tmp/*
+app/[Cc]onsole/*
+app/[Cc]onfig/core.php
+app/[Cc]onfig/database.php
+app/[Cc]onfig/email.php
+/[Vv]endor
+/[Vv]endors
+
+### Composer
+composer.phar
+composer.lock
+vendor/
+
+### ApiGen
+/webroot/doc/
+
+### Custom
+/build
+/dist
+/tags

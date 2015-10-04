@@ -1,20 +1,37 @@
-# Google Maps for CakePHP 2.x [![Build Status](https://travis-ci.org/marcferna/CakePHP-GoogleMapHelper.png?branch=master)](https://travis-ci.org/marcferna/CakePHP-GoogleMapHelper)
-Helper for CakePHP framework that integrates a Google Map in your view using Google Maps API V3.
+# Google Maps for CakePHP 2.x
+
+## Description
+A Helper for CakePHP framework that integrates a Google Map in your view using Google Maps API V3.
 
 ## Thanks
 
 This is forked from  https://github.com/marcferna/CakePHP-GoogleMapHelper
-I forked this in order to have the correct folder structure and add it as submodule.
+I needed to fork this in order to have the correct folder structure and add it as submodule.
+Many thanks to **marcfenrna**
+
+## Requirements
+ - CakePHP 2.x
 
 ## Installation
-1. Place the helper into **app/View/Helper/GoogleMapHelper.php**
+ 1. clone the project to your plugins folder or add it as submodule
+```
+    git clone git@github.com:gmponos/CakeMap.git app/Plugin/CakeMap
+ ```
+ 
+or as a submodule
+```
+    git submodule add git@github.com:gmponos/CakeMap.git app/Plugin/CakeMap
+```
+2. Enable the plugin from your bootstrap file:
 
-2. Add this line into the **controller**:
+```CakePlugin::load('CakeMap');```
+
+3. Add this line into your AppController or inside the controller you need to use the plugin
 ```php
-public $helpers = array('GoogleMap');   //Adding the helper
+    public $helpers = array('CakeMap.CakeMap');   //Adding the helper
 ```
 
-3. Then we need to add the necessary Javascript files into the **view**:
+4. Then add the necessary Javascript files into the **view**:
 ```php
 <?= $this->Html->script('http://maps.google.com/maps/api/js?sensor=true', false); ?>
 ```
@@ -27,7 +44,8 @@ To add the api key:
 ## Usage
 Print the map to your view
 ```php
-<?= $this->GoogleMap->map(); ?>
+<?= $this->CakeMap->map(); ?>
+<?= $this->CakeMap->map(); ?>
 ```
 
 ### Map Options
@@ -55,7 +73,7 @@ In order modify any of the default options shown above you need to create your m
 ```php
 <?
   // Override any of the following default options to customize your map
-  $map_options = array(
+  $options = array(
     'id' => 'map_canvas',
     'width' => '800px',
     'height' => '800px',
@@ -77,30 +95,30 @@ In order modify any of the default options shown above you need to create your m
   );
 ?>
 
-<?= $this->GoogleMap->map($map_options); ?>
+<?= $this->CakeMap->map($options); ?>
 ```
 
-## Markers
+### Markers
 To add a marker use:
 ```php
-<?= $this->GoogleMap->addMarker($map_id, $marker_id, $position); ?>
+<?= $this->CakeMap->addMarker($map_id, $marker_id, $position); ?>
 ```
 Where:
 * **$map_id** is the map canvas id ('map_canvas' by default)
-* **$marker_id** is the unique identifiyer for that marker
+* **$marker_id** is the unique identifier for that marker
 * **$position** could be a simple string with the address or an array with latitude and longitude.
 
 **Example with address (using geolocation)**
 ```php
-<?= $this->GoogleMap->addMarker("map_canvas", 1, "1 Infinite Loop, Cupertino, California"); ?>
+<?= $this->CakeMap->addMarker("map_canvas", 1, "1 Infinite Loop, Cupertino, California"); ?>
 ```
 
 **Example with latitude and longitude**
 ```php
-<?= $this->GoogleMap->addMarker("map_canvas", 1, array('latitude' => 40.69847, 'longitude' => -73.9514)); ?>
+<?= $this->CakeMap->addMarker("map_canvas", 1, array('latitude' => 40.69847, 'longitude' => -73.9514)); ?>
 ```
 
-### Marker Options
+#### Marker Options
 There are some marker options available to customize the marker popup info window:
 * **showWindow:** Boolean to show or not the popup info window
 * **windowText:** Text to show inside the popup info window
@@ -124,11 +142,11 @@ In order modify any of the default options shown above you need to create your m
   );
 ?>
 
-<?= $this->GoogleMap->addMarker("map_canvas", 1, "1 Infinite Loop, Cupertino, California", $marker_options); ?>
+<?= $this->CakeMap->addMarker("map_canvas", 1, "1 Infinite Loop, Cupertino, California", $marker_options); ?>
 
 ```
 
-### Draggable Marker
+#### Draggable Marker
 To access the draggable marker's coordinates include an element in the html with the id of the marker.
 If a draggable marker with id of **1** is added, the coordinates can be accessed like:
 ```html
@@ -136,10 +154,10 @@ If a draggable marker with id of **1** is added, the coordinates can be accessed
 <input type="text" id="longitude_1" />
 ```
 
-## Directions
+### Directions
 To add a route between two points use:
 ```php
-<?= $this->GoogleMap->getDirections($map_id, $id, $position); ?>
+<?= $this->CakeMap->getDirections($map_id, $id, $position); ?>
 ```
 Where:
 * **$map_id** is the map canvas id ('map_canvas' by default)
@@ -148,10 +166,10 @@ Where:
 
 **Example:**
 ```php
-<?= $this->GoogleMap->getDirections("map_canvas", "directions1", array("from" => "Lake Tahoe", "to" => "San Francisco")); ?>
+<?= $this->CakeMap->getDirections("map_canvas", "directions1", array("from" => "Lake Tahoe", "to" => "San Francisco")); ?>
 ```
 
-### Directions Options
+#### Directions Options
 There are some directions options available to customize:
 * **travelMode:** Travel mode (DRIVING, BICYCLING, TRANSIT, WALKING)
 * **directionsDiv:** Div ID to dump the step by step directions (The div needs to be before the getDirections() call)
@@ -167,26 +185,26 @@ In order modify any of the default options shown above you need pass the array a
   );
 ?>
 <div id="directions"></div>
-<?= $this->GoogleMap->getDirections("map_canvas", "directions1", array("from" => "Lake Tahoe", "to" => "San Francisco"), $directions_options); ?>
+<?= $this->CakeMap->getDirections("map_canvas", "directions1", array("from" => "Lake Tahoe", "to" => "San Francisco"), $directions_options); ?>
 
 ```
 
-## Polylines
+### Polylines
 To draw a line between to points use:
 ```php
-<?= $this->GoogleMap->addPolyline($map_id, $id, $position); ?>
+<?= $this->CakeMap->addPolyline($map_id, $id, $position); ?>
 ```
 Where:
 * **$map_id** is the map canvas id ('map_canvas' by default)
-* **$id** is the unique identifiyer for that polyline
-* **$position** array with start and end coordinates (geolocation not suppoerted yet)
+* **$id** is the unique identifier for that polyline
+* **$position** array with start and end coordinates (geolocation not supported yet)
 
 **Example:**
 ```php
-<?= $this->GoogleMap->addPolyline("map_canvas", "polyline", array("start" => array("latitude" =>37.772323 ,"longitude"=> -122.214897), "end" => array("latitude" =>21.291982 ,"longitude"=> -157.821856))); ?>
+<?= $this->CakeMap->addPolyline("map_canvas", "polyline", array("start" => array("latitude" =>37.772323 ,"longitude"=> -122.214897), "end" => array("latitude" =>21.291982 ,"longitude"=> -157.821856))); ?>
 ```
 
-### Polylines Options
+#### Polylines Options
 There are some drawing options available to customize:
 * **strokeColor:** Specifies a hexadecimal HTML color of the format "#FFFFFF". The Polyline class does not support named colors.
 * **strokeOpacity:** Specifies a numerical fractional value between 0.0 and 1.0.
@@ -203,27 +221,27 @@ In order modify any of the default options shown above you need to create your p
     "strokeWeight" => 8
   );
 ?>
-<?= $this->GoogleMap->addPolyline("map_canvas", "polyline", array("start" => array("latitude" => 37.772323 ,"longitude" => -122.214897), "end" => array("latitude" => 21.291982 , "longitude" => -157.821856)), $options); ?>
+<?= $this->CakeMap->addPolyline("map_canvas", "polyline", array("start" => array("latitude" => 37.772323 ,"longitude" => -122.214897), "end" => array("latitude" => 21.291982 , "longitude" => -157.821856)), $options); ?>
 
 ```
 
-## Circles
+### Circles
 To draw a circle around a point use:
 ```php
-<?= $this->GoogleMap->addCircle($map_id, $id, $center, $radius=100); ?>
+<?= $this->CakeMap->addCircle($map_id, $id, $center, $radius=100); ?>
 ```
 Where:
 * **$map_id** is the map canvas id ('map_canvas' by default)
-* **$id** is the unique identifiyer for that circle
+* **$id** is the unique identifier for that circle
 * **$center** array with the center latitude and longitude coordinates (geolocation not suppoerted yet)
 * **$radius** specifies the radius of the circle, in meters. Defaults to 100 meters
 
 **Example:**
 ```php
-<?= $this->GoogleMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293)); ?>
+<?= $this->CakeMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293)); ?>
 ```
 
-### Circle Options
+#### Circle Options
 There are some drawing options available to customize:
 * **strokeColor:** Specifies a hexadecimal HTML color of the format "#FFFFFF". The Circle class does not support named colors.
 * **strokeOpacity:** Specifies a numerical fractional value between 0.0 and 1.0.
@@ -244,9 +262,6 @@ In order modify any of the default options shown above you need to create your c
     "fillOpacity" => 0.3
   );
 ?>
-<?= $this->GoogleMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293), 1000, $options); ?>
+<?= $this->CakeMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293), 1000, $options); ?>
 
 ```
-
-### Todo
- - Make the variables of the class a single array variable options 
