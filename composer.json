@@ -25,6 +25,5 @@
     "cakephp/cakephp-codesniffer": "*",
     "phpunit/phpunit": "*"
   },
-  "minimum-stability": "dev",
   "prefer-stable": true
 }
