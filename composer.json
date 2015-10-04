@@ -2,6 +2,7 @@
   "name": "cakephp/cakephp_cakemap",
   "description": "A CakePHP helper to let u use transparently google maps",
   "type": "cakephp-plugin",
+  "license": "MIT",
   "keywords": [
     "helper",
     "google_maps"
@@ -10,26 +11,18 @@
   "support": {
     "issues": "https://github.com/gmponos/CakeMap/issues"
   },
-  "license": "MIT",
-  "require": {
-    "php": ">=5.4.16",
-    "cakephp/cakephp": "^3.1"
-  },
   "autoload": {
     "psr-4": {
       "CakeMap\\": "src",
       "CakeMap\\Test\\": "tests"
     }
   },
-  "require-dev": {
-    "cakephp/cakephp-codesniffer": "2.*",
-    "phpunit/phpunit": "*"
+  "require": {
+    "php": ">=5.4.16",
+    "cakephp/cakephp": "^3.1"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "extra": {
-    "branch-alias": {
-      "dev-3.x": "3.0.x"
-    }
+  "require-dev": {
+    "cakephp/cakephp-codesniffer": "*",
+    "phpunit/phpunit": "*"
   }
 }
