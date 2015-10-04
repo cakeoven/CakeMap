@@ -1,5 +1,5 @@
 {
-  "name": "cakephp/cakephp_cakemap",
+  "name": "skata/skata",
   "description": "A CakePHP helper to let u use transparently google maps",
   "type": "cakephp-plugin",
   "license": "MIT",
@@ -7,7 +7,7 @@
     "helper",
     "google_maps"
   ],
-  "homepage": "http://github.org/gmponos/CakeMap",
+  "homepage": "http://github.com/gmponos/CakeMap",
   "support": {
     "issues": "https://github.com/gmponos/CakeMap/issues"
   },
