@@ -71,7 +71,7 @@ class CakeMapHelper extends AppView
     /**
      * @var string
      */
-    private static $version = '1.1.0';
+    private static $version = '3.0.0';
 
     /**
      * Get the version of this helper
@@ -283,24 +283,19 @@ class CakeMapHelper extends AppView
      * This method puts a marker in the google map generated with the method map
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param string $map_id   Id that you used to create the map (default 'map_canvas')
+     * @param string $mapId    Id that you used to create the map (default 'map_canvas')
      * @param string $id       Unique identifier for the marker
      * @param mixed  $position string with the address or an array with latitude and longitude
      * @param array  $options  options array
      * @return string will return all the javascript script to add the marker to the map
      */
-    public
-    function addMarker(
-        $map_id,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function addMarker($mapId, $id, $position, array $options = [])
+    {
         $longitude = $latitude =
         $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
         $fillColor = $fillOpacity = $draggableMarker = null;
 
-        if ($id == null || $map_id == null || $position == null) {
+        if ($id == null || $mapId == null || $position == null) {
             return null;
         }
         $geolocation = false;
@@ -334,7 +329,7 @@ class CakeMapHelper extends AppView
             if (!preg_match('/^https?:\/\//', $markerIcon)) {
                 $markerIcon = $this->webroot . IMAGES_URL . '/' . $markerIcon;
             }
-            $marker .= "setMarker({$map_id},'{$id}',new google.maps.LatLng($latitude, $longitude),'{$markerTitle}','{$markerIcon}','{$markerShadow}','{$windowText}', " . ($infoWindow ? 'true' : 'false') . "," . ($draggableMarker ? 'true' : 'false') . ")";
+            $marker .= "setMarker({$mapId},'{$id}',new google.maps.LatLng($latitude, $longitude),'{$markerTitle}','{$markerIcon}','{$markerShadow}','{$windowText}', " . ($infoWindow ? 'true' : 'false') . "," . ($draggableMarker ? 'true' : 'false') . ")";
         } else {
             if (empty($position)) {
                 return null;
@@ -342,7 +337,7 @@ class CakeMapHelper extends AppView
             if (!preg_match('/^https?:\/\//', $markerIcon)) {
                 $markerIcon = $this->webroot . IMAGES_URL . '/' . $markerIcon;
             }
-            $marker .= "geocodeAddress('{$position}', 'setMarker', {$map_id},'{$id}','{$markerTitle}','{$markerIcon}','{$markerShadow}','{$windowText}', " . ($infoWindow ? 'true' : 'false') . "," . ($draggableMarker ? 'true' : 'false') . ")";
+            $marker .= "geocodeAddress('{$position}', 'setMarker', {$mapId},'{$id}','{$markerTitle}','{$markerIcon}','{$markerShadow}','{$windowText}', " . ($infoWindow ? 'true' : 'false') . "," . ($draggableMarker ? 'true' : 'false') . ")";
         }
 
         $marker .= "</script>\n";
@@ -357,10 +352,8 @@ class CakeMapHelper extends AppView
      * @param string $map_id Id that you used to create the map (default 'map_canvas')
      * @return string will return all the javascript script to add the clusterer to the map
      */
-    public
-    function clusterMarkers(
-        $map_id
-    ) {
+    public function clusterMarkers($map_id)
+    {
         if ($map_id == null) {
             return null;
         }
@@ -384,13 +377,8 @@ class CakeMapHelper extends AppView
      * @param array  $options  options array
      * @return string Return all the javascript script to add the directions to the map
      */
-    public
-    function getDirections(
-        $mapId,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function getDirections($mapId, $id, $position, array $options = [])
+    {
         if ($id == null || $mapId == null || $position == null) {
             return null;
         }
@@ -459,13 +447,8 @@ class CakeMapHelper extends AppView
      * @param array  $options  - options array
      * @return string - will return all the javascript script to add the directions to the map
      */
-    public
-    function addPolyline(
-        $mapId,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function addPolyline($mapId, $id, $position, array $options = [])
+    {
         if ($id == null || $mapId == null || $position == null) {
             return null;
         }
@@ -537,22 +520,16 @@ class CakeMapHelper extends AppView
      * This method adds a circle around a center point
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param string $map_id  Id that you used to create the map (default 'map_canvas')
+     * @param string $mapId   Id that you used to create the map (default 'map_canvas')
      * @param string $id      Unique identifier for the directions
      * @param string $center
      * @param int    $radius
      * @param array  $options options array
      * @return string Return all the javascript script to add the directions to the map
      */
-    public
-    function addCircle(
-        $map_id,
-        $id,
-        $center,
-        $radius = 100,
-        $options = []
-    ) {
-        if ($id == null || $map_id == null || $center == null) {
+    public function addCircle($mapId, $id, $center, $radius = 100, array $options = [])
+    {
+        if ($id == null || $mapId == null || $center == null) {
             return null;
         }
 
@@ -593,7 +570,7 @@ class CakeMapHelper extends AppView
           center: center,
           radius: {$radius}
         });
-        {$id}Circle.setMap({$map_id});
+        {$id}Circle.setMap({$mapId});
 
       </script>
       ";

@@ -265,3 +265,7 @@ In order modify any of the default options shown above you need to create your c
 <?= $this->CakeMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293), 1000, $options); ?>
 
 ```
+
+## ToDo
+
+ - Write Better PHPUnit Test
