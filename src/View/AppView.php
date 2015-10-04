@@ -2,7 +2,6 @@
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
@@ -11,7 +10,8 @@
  * @since     3.0.0
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace CakeBootstrap\View;
+
+namespace CakeMap\View;
 
 use Cake\View\View;
 
@@ -23,7 +23,6 @@ class AppView extends View
 
     /**
      * Initialization hook method.
-     *
      * For e.g. use this method to load a helper for all views:
      * `$this->loadHelper('Html');`
      *

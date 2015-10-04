@@ -3,6 +3,7 @@
 /**
  * CakePHP Google Map V3 - Helper to CakePHP framework that integrates a Google Map in your view
  * using Google Maps API V3.
+ * This helper uses the latest Google API V3 so you don't need to provide or get any Google API Key
  * Copyright (c) 2012 Marc Fernandez Girones: marc.fernandezg@gmail.com
  * MIT LICENSE:
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +26,12 @@
  * @version     3.0
  * @license     OPPL
  *              Date       May 13, 2010
- *              This helper uses the latest Google API V3 so you don't need to provide or get any Google API Key
  */
-class CakeMapHelper extends AppHelper
+namespace CakeMap\View\Helper;
+
+use CakeMap\View\AppView;
+
+class CakeMapHelper extends AppView
 {
     /**
      * @var array
@@ -252,22 +256,22 @@ class CakeMapHelper extends AppHelper
         $map .= "
           // remove a marker from map
       function removeMarker(id){
-	   var index = markersIds.indexOf(String(id));
-	   if (index > -1) {
-	   	markers[index].setMap(null);
-	   	return true;
-	   }
-	   return false;
-	    }
-	    // add a marker back to map
-	    function addMarker(id, map){
-	   var index = markersIds.indexOf(String(id));
-	   if (index > -1) {
-	   	markers[index].setMap(map);
-	   	return true;
-	   }
-	   return false;
-	    }";
+       var index = markersIds.indexOf(String(id));
+       if (index > -1) {
+           markers[index].setMap(null);
+           return true;
+       }
+       return false;
+        }
+        // add a marker back to map
+        function addMarker(id, map){
+       var index = markersIds.indexOf(String(id));
+       if (index > -1) {
+           markers[index].setMap(map);
+           return true;
+       }
+       return false;
+        }";
 
         $map .= "</script>";
         return $map;
@@ -374,10 +378,10 @@ class CakeMapHelper extends AppHelper
      * This method gets the direction between two addresses or markers
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $mapId    Id that you used to create the map (default 'map_canvas')
-     * @param       $id       Unique identifier for the directions
-     * @param mixed $position array with strings with the from and to addresses or from and to markers
-     * @param array $options  options array
+     * @param string $mapId    Id that you used to create the map (default 'map_canvas')
+     * @param        $id       Unique identifier for the directions
+     * @param mixed  $position array with strings with the from and to addresses or from and to markers
+     * @param array  $options  options array
      * @return string Return all the javascript script to add the directions to the map
      */
     public
