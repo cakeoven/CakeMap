@@ -27,11 +27,12 @@
  * @license     OPPL
  *              Date       May 13, 2010
  */
+
 namespace CakeMap\View\Helper;
 
-use CakeMap\View\AppView;
+use Cake\View\Helper;
 
-class CakeMapHelper extends AppView
+class CakeMapHelper extends Helper
 {
     /**
      * @var array
