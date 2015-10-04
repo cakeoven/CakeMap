@@ -1,5 +1,5 @@
 {
-  "name": "Cake/CakeMap",
+  "name": "cakephp/cakephp_cakemap",
   "description": "A CakePHP helper to let u use transparently google maps",
   "type": "helper",
   "keywords": [
@@ -14,6 +14,12 @@
   "require": {
     "php": ">=5.4.16",
     "cakephp/cakephp": "^3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "CakeMap\\": "src",
+      "CakeMap\\Test\\": "tests"
+    }
   },
   "minimum-stability": "dev",
   "require-dev": {
