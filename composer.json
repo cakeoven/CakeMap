@@ -1,5 +1,5 @@
 {
-  "name": "skata/skata",
+  "name": "cakephp/cakephp_cakemap",
   "description": "A CakePHP helper to let u use transparently google maps",
   "type": "cakephp-plugin",
   "license": "MIT",
