@@ -81,3 +81,8 @@ vendor/
 /build
 /dist
 /tags
+=======
+build
+composer.lock
+docs
+vendor

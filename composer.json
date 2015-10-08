@@ -25,5 +25,8 @@
     "cakephp/cakephp-codesniffer": "*",
     "phpunit/phpunit": "*"
   },
+  "suggest": {
+    "apigen/apigen": "Produce Documentations very easily via DocBlocks"
+  },
   "prefer-stable": true
 }

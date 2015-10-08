@@ -1,4 +1,4 @@
-# Google Maps for CakePHP 2.x
+# CakeMap Plugin for CakePHP 2.x
 
 ## Description
 A Helper for CakePHP framework that integrates a Google Map in your view using Google Maps API V3.
@@ -264,4 +264,6 @@ In order modify any of the default options shown above you need to create your c
 ?>
 <?= $this->CakeMap->addCircle("map_canvas", "circle1", array('latitude' => 40.70894620592961, 'longitude' => -73.93882513046293), 1000, $options); ?>
 
-```
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
