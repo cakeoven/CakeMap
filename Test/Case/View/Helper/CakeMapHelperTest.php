@@ -21,6 +21,14 @@ class CakeMapHelperTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function getVersion()
+    {
+        $this->assertNotEmpty($this->CakeMap->getVersion());
+    }
+
+    /**
+     * @test
+     */
     public function testConstructor()
     {
         $this->assertNotNull($this->CakeMap);
