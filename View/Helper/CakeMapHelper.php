@@ -67,8 +67,8 @@ class CakeMapHelper extends AppHelper
      * This method generates a div tag and inserts a google maps.
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param array $options - options array
-     * @return string - will return all the javascript script to generate the map
+     * @param array $options options array
+     * @return string Return all the javascript script to generate the map
      */
     public function map(array $options = [])
     {
@@ -267,15 +267,10 @@ class CakeMapHelper extends AppHelper
      * @param string $id       Unique identifier for the marker
      * @param mixed  $position string with the address or an array with latitude and longitude
      * @param array  $options  options array
-     * @return string will return all the javascript script to add the marker to the map
+     * @return string Return all the javascript script to add the marker to the map
      */
-    public
-    function addMarker(
-        $map_id,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function addMarker($map_id, $id, $position, array $options = [])
+    {
         $longitude = $latitude =
         $markerTitle = $markerIcon = $markerShadow = $infoWindow = $windowText =
         $fillColor = $fillOpacity = $draggableMarker = null;
@@ -337,10 +332,8 @@ class CakeMapHelper extends AppHelper
      * @param string $map_id Id that you used to create the map (default 'map_canvas')
      * @return string will return all the javascript script to add the clusterer to the map
      */
-    public
-    function clusterMarkers(
-        $map_id
-    ) {
+    public function clusterMarkers($map_id)
+    {
         if ($map_id == null) {
             return null;
         }
@@ -358,19 +351,14 @@ class CakeMapHelper extends AppHelper
      * This method gets the direction between two addresses or markers
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param       $mapId    Id that you used to create the map (default 'map_canvas')
-     * @param       $id       Unique identifier for the directions
-     * @param mixed $position array with strings with the from and to addresses or from and to markers
-     * @param array $options  options array
+     * @param string $mapId    Id that you used to create the map (default 'map_canvas')
+     * @param string $id       Unique identifier for the directions
+     * @param array  $position array with strings with the from and to addresses or from and to markers
+     * @param array  $options  options array
      * @return string Return all the javascript script to add the directions to the map
      */
-    public
-    function getDirections(
-        $mapId,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function getDirections($mapId, $id, array $position, array $options = [])
+    {
         if ($id == null || $mapId == null || $position == null) {
             return null;
         }
@@ -434,18 +422,13 @@ class CakeMapHelper extends AppHelper
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
      * @param string $mapId    Id that you used to create the map (default 'map_canvas')
-     * @param        $id       - Unique identifier for the directions
-     * @param mixed  $position - array with start and end latitudes and longitudes
-     * @param array  $options  - options array
-     * @return string - will return all the javascript script to add the directions to the map
+     * @param string $id       Unique identifier for the directions
+     * @param array  $position array with start and end latitudes and longitudes
+     * @param array  $options  options array
+     * @return string Return all the javascript script to add the directions to the map
      */
-    public
-    function addPolyline(
-        $mapId,
-        $id,
-        $position,
-        array $options = []
-    ) {
+    public function addPolyline($mapId, $id, array $position, array $options = [])
+    {
         if ($id == null || $mapId == null || $position == null) {
             return null;
         }
@@ -521,17 +504,11 @@ class CakeMapHelper extends AppHelper
      * @param string $id      Unique identifier for the directions
      * @param string $center
      * @param int    $radius
-     * @param array  $options options array
+     * @param array  $options array with extra options
      * @return string Return all the javascript script to add the directions to the map
      */
-    public
-    function addCircle(
-        $map_id,
-        $id,
-        $center,
-        $radius = 100,
-        $options = []
-    ) {
+    public function addCircle($map_id, $id, $center, $radius = 100, array $options = [])
+    {
         if ($id == null || $map_id == null || $center == null) {
             return null;
         }
