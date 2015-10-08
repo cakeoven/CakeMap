@@ -29,6 +29,7 @@
  */
 class CakeMapHelper extends AppHelper
 {
+
     /**
      * @var array
      */
@@ -67,7 +68,7 @@ class CakeMapHelper extends AppHelper
     /**
      * @var string
      */
-    private static $version = '1.1.0';
+    private static $version = '2.0.0';
 
     /**
      * Get the version of this helper
