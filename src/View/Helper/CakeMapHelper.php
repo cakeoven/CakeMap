@@ -1,31 +1,14 @@
 <?php
 
 /**
- * CakePHP Google Map V3 - Helper to CakePHP framework that integrates a Google Map in your view
+ * CakeMapHelper
+ * Helper to CakePHP framework that integrates a Google Map in your view
  * using Google Maps API V3.
  * This helper uses the latest Google API V3 so you don't need to provide or get any Google API Key
- * Copyright (c) 2012 Marc Fernandez Girones: marc.fernandezg@gmail.com
- * MIT LICENSE:
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
  *
  * @author      Marc Fernandez Girones <marc.fernandezg@gmail.com>
+ * @author      George Mponos <gmponos@gmail.com>
  * @version     3.0
- * @license     OPPL
- *              Date       May 13, 2010
  */
 
 namespace CakeMap\View\Helper;
@@ -88,8 +71,8 @@ class CakeMapHelper extends Helper
      * This method generates a div tag and inserts a google maps.
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
-     * @param array $options - options array
-     * @return string - will return all the javascript script to generate the map
+     * @param array $options options array
+     * @return string Return all the javascript script to generate the map
      */
     public function map(array $options = [])
     {
@@ -288,7 +271,7 @@ class CakeMapHelper extends Helper
      * @param string $id       Unique identifier for the marker
      * @param mixed  $position string with the address or an array with latitude and longitude
      * @param array  $options  options array
-     * @return string will return all the javascript script to add the marker to the map
+     * @return string Return all the javascript script to add the marker to the map
      */
     public function addMarker($mapId, $id, $position, array $options = [])
     {
@@ -373,12 +356,12 @@ class CakeMapHelper extends Helper
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
      * @param string $mapId    Id that you used to create the map (default 'map_canvas')
-     * @param        $id       Unique identifier for the directions
-     * @param mixed  $position array with strings with the from and to addresses or from and to markers
+     * @param string $id       Unique identifier for the directions
+     * @param array  $position array with strings with the from and to addresses or from and to markers
      * @param array  $options  options array
      * @return string Return all the javascript script to add the directions to the map
      */
-    public function getDirections($mapId, $id, $position, array $options = [])
+    public function getDirections($mapId, $id, array $position, array $options = [])
     {
         if ($id == null || $mapId == null || $position == null) {
             return null;
@@ -443,12 +426,12 @@ class CakeMapHelper extends Helper
      *
      * @author Marc Fernandez <marc.fernandezg (at) gmail (dot) com>
      * @param string $mapId    Id that you used to create the map (default 'map_canvas')
-     * @param        $id       - Unique identifier for the directions
-     * @param mixed  $position - array with start and end latitudes and longitudes
-     * @param array  $options  - options array
-     * @return string - will return all the javascript script to add the directions to the map
+     * @param string $id       Unique identifier for the directions
+     * @param array  $position array with start and end latitudes and longitudes
+     * @param array  $options  options array
+     * @return string Return all the javascript script to add the directions to the map
      */
-    public function addPolyline($mapId, $id, $position, array $options = [])
+    public function addPolyline($mapId, $id, array $position, array $options = [])
     {
         if ($id == null || $mapId == null || $position == null) {
             return null;
@@ -525,7 +508,7 @@ class CakeMapHelper extends Helper
      * @param string $id      Unique identifier for the directions
      * @param string $center
      * @param int    $radius
-     * @param array  $options options array
+     * @param array  $options array with extra options
      * @return string Return all the javascript script to add the directions to the map
      */
     public function addCircle($mapId, $id, $center, $radius = 100, array $options = [])

@@ -257,6 +257,10 @@ In order modify any of the default options shown above you need to create your c
             ), 1000, $options);
     ?>
 
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
 ## ToDo
 
  - Write Better PHPUnit Test

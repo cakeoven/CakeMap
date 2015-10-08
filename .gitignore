@@ -75,6 +75,8 @@ composer.lock
 vendor/
 
 ### ApiGen
+apigen.phar
+docs
 /webroot/doc/
 
 ### Custom

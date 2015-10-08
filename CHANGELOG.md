@@ -1,20 +1,13 @@
 # Changelog
 
-All Notable changes to `cakephp\cakephp_cakemap` will be documented in this file
+All Notable changes to `CakeMap` will be documented in this file
 
-## NEXT - YYYY-MM-DD
+## v3.0.0 - 2015-10-08
 
 ### Added
-- Nothing
+- Initial commit
 
-### Deprecated
-- Nothing
+## v2.0.0 - 2015-10-08
 
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+### Added
+- Initial commit
