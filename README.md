@@ -5,9 +5,9 @@ A Helper for CakePHP framework that integrates a Google Map in your view using G
 
 ## Thanks
 
-This is forked from  https://github.com/marcferna/CakePHP-GoogleMapHelper
-I needed to fork this in order to have the correct folder structure and add it as submodule.
-Many thanks to **marcfenrna**
+This is forked from  [marcferna](https://github.com/marcferna/CakePHP-GoogleMapHelper)
+I needed to fork this in order to have the correct folder structure and add it as submodule or use composer.
+Many thanks to **marcfenrna** 
 
 ## Requirements
  - CakePHP 2.x

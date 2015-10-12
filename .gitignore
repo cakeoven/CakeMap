@@ -46,9 +46,7 @@ gen
 ## NetBeans project files
 nbproject/*
 nbproject/private/
-build/
 nbbuild/
-dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
@@ -80,8 +78,6 @@ docs
 /webroot/doc/
 
 ### Custom
-/build
-/dist
 /tags
 =======
 build
