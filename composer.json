@@ -11,12 +11,6 @@
   "support": {
     "issues": "https://github.com/gmponos/CakeMap/issues"
   },
-  "autoload": {
-    "psr-4": {
-      "CakeMap\\": "src",
-      "CakeMap\\Test\\": "tests"
-    }
-  },
   "require": {
     "php": ">=5.4.16",
     "cakephp/cakephp": "^2.6"
