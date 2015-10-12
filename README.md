@@ -1,45 +1,32 @@
-# CakeMap Plugin for CakePHP 2.x
+# CakeMap Plugin for CakePHP 3.x
 
 ## Description
 A Helper for CakePHP framework that integrates a Google Map in your view using Google Maps API V3.
 
 ## Thanks
 
-This is forked from  https://github.com/marcferna/CakePHP-GoogleMapHelper
-I needed to fork this in order to have the correct folder structure and add it as submodule.
-Many thanks to **marcfenrna**
+This is forked from  [marcferna](https://github.com/marcferna/CakePHP-GoogleMapHelper)
+I needed to fork this in order to have the correct folder structure and add it as submodule or use composer.
+Many thanks to **marcfenrna** 
 
 ## Requirements
- - CakePHP 2.x
+ - CakePHP 3.x
 
 ## Installation
- 1. clone the project to your plugins folder or add it as submodule
-```
-    git clone git@github.com:gmponos/CakeMap.git app/Plugin/CakeMap
- ```
- 
-or as a submodule
-```
-    git submodule add git@github.com:gmponos/CakeMap.git app/Plugin/CakeMap
-```
-2. Enable the plugin from your bootstrap file:
 
-```CakePlugin::load('CakeMap');```
+  1. Install via composer using my repository
+  2. Add this line into your AppController or inside the controller you need to use the plugin
 
-3. Add this line into your AppController or inside the controller you need to use the plugin
-```
-public $helpers = array('CakeMap.CakeMap');   //Adding the helper
-```
+    ```public $helpers = array('CakeMap.CakeMap'); //Adding the helper```
 
-4. Then add the necessary Javascript files into the **view**:
-```
-<?= $this->Html->script('http://maps.google.com/maps/api/js?sensor=true', false); ?>
-```
+  3. Then add the necessary Javascript files into the **view**:
+    
+    ```<?= $this->Html->script('http://maps.google.com/maps/api/js?sensor=true', false); ?>```
+
 Note that the API key is not required but it you may want to add it if you want to monitor your usage or to buy additional usage quota.
 To add the api key:
-```
-<?= $this->Html->script('http://maps.google.com/maps/api/js?key=YOUR_API_KEY&sensor=true', false); ?>
-```
+
+    <?= $this->Html->script('http://maps.google.com/maps/api/js?key=YOUR_API_KEY&sensor=true', false); ?>
 
 ## Usage
 Print the map to your view
