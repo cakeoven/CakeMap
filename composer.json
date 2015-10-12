@@ -1,5 +1,5 @@
 {
-  "name": "cakephp/cakephp_cakemap",
+  "name": "cakeoven/cakemap",
   "description": "A CakePHP helper to let u use transparently google maps",
   "type": "cakephp-plugin",
   "license": "MIT",
