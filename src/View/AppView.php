@@ -11,7 +11,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-namespace CakeMap\View;
+namespace CakeOven\CakeMap\View;
 
 use Cake\View\View;
 

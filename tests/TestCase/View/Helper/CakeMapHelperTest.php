@@ -1,7 +1,7 @@
 <?php
-namespace CakeMap\Test\TestCase\View\Helper;
+namespace CakeOven\CakeMap\Test\TestCase\View\Helper;
 
-use CakeMap\View\Helper\CakeMapHelper;
+use CakeOven\CakeMap\View\Helper\CakeMapHelper;
 
 /**
  * Class CakeMapHelperTest

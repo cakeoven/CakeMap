@@ -8,14 +8,10 @@
  *
  * @author      Marc Fernandez Girones <marc.fernandezg@gmail.com>
  * @author      George Mponos <gmponos@gmail.com>
-<<<<<<< HEAD:View/Helper/CakeMapHelper.php
- * @version     2.0
-=======
  * @version     3.0
->>>>>>> 3.0:src/View/Helper/CakeMapHelper.php
  */
 
-namespace CakeMap\View\Helper;
+namespace CakeOven\CakeMap\View\Helper;
 
 use Cake\View\Helper;
 
@@ -57,14 +53,7 @@ class CakeMapHelper extends Helper
         'draggableMarker' => false,
     ];
 
-    /**
-     * @var string
-     */
-<<<<<<< HEAD:View/Helper/CakeMapHelper.php
-    private static $version = '2.0.0';
-=======
     private static $version = '3.0.0';
->>>>>>> 3.0:src/View/Helper/CakeMapHelper.php
 
     /**
      * Get the version of this helper

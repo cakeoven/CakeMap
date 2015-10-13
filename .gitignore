@@ -67,10 +67,8 @@ vendor/
 ### ApiGen
 apigen.phar
 docs
-/webroot/doc/
 
 ### Custom
 /tags
-dist
-build
-vendor
+/dist
+/build
