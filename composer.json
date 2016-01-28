@@ -13,7 +13,8 @@
   },
   "require": {
     "php": ">=5.4.16",
-    "cakephp/cakephp": "^2.6"
+    "cakephp/cakephp": "^2.6",
+    "composer/installers": "*"
   },
   "require-dev": {
     "cakephp/cakephp-codesniffer": "*",
@@ -22,5 +23,11 @@
   "suggest": {
     "apigen/apigen": "Produce Documentations very easily via DocBlocks"
   },
-  "prefer-stable": true
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.x-dev"
+    },
+    "installer-name": "CakeMap"
+  }
 }
