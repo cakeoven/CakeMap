@@ -28,10 +28,5 @@
     "suggest": {
         "apigen/apigen": "Produce Documentations very easily via DocBlocks"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.x-dev"
-        }
-    },
     "prefer-stable": true
 }
